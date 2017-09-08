@@ -24,5 +24,18 @@ input[type="submit"] {
     color: white;
     border-width: 0;
 }
+#panel, #flip {
+    padding: 5px;
+    text-align: center;
+    background-color: #e5eecc;
+    border: solid 1px #c3c3c3;
+}
+
+#panel {
+    padding: 50px;
+    height:100px;
+    display: none;
+    background-color: aqua;
+}
 Po kliknieciu wyslij niech wysuwa sie informacja ze user zostal zaREJESTORWANY A POTEM NIECH SIEM CHOWA
 slide down slide up jquery

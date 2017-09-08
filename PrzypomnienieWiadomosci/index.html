@@ -4,6 +4,15 @@
 		<meta charset="UTF-8">
         <link rel="Stylesheet" type="text/css" href="./styles.css" />
 		<title>...</title>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+        <script> 
+$(document).ready(function(){
+    $("#button").click(function(){
+        document.getElementById("#panel").innerHTML="sssss";
+        $("#panel").slideDown("slow");
+    });
+});
+</script>
 	</head>
 	<body>
         <div id="RegistrationField">
@@ -15,8 +24,9 @@
               Nazwisko:<br>
               <input type="text" name="lastname" value="">
               <br><br>
-              <input type="submit" value="Wyślij">
+                  <button id="button" type="button">Wyslij</button>
             </form> 
         </div>
+            <div id="panel">Hello world!</div>
 	</body>
 </html>
