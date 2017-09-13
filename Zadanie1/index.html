@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <meta charset="UTF-8"> 
         <link rel="stylesheet" type="text/css" href="./styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script> 
         $(document).ready(function(){
             $( "li.overlaps" ).click(function( event ) {
-                var numerOfOverlap =$('li').index(this) + 1;
+                var numerOfOverlap =$('li').index(this) ;
                 var numerOfParagraph = numerOfOverlap;
                
             //Restore all element style    
+            $('.panel').slideUp();
             $('ul li:has(ul)').css("background-color","e5eecc");
             $('.panel').css("display","none");
+            
                 
-            ///Check     
-            $( "div.panel" ).eq( numerOfParagraph ).css( "background-color", "red" );
+            ///Check  
+                if ($( "div.panel" ).eq( numerOfParagraph ).length > 0) {
+                        $( "div.panel" ).eq( numerOfParagraph ).css( "background-color", "red" );
+                        $( "div.panel" ).eq( numerOfParagraph ).slideDown();
+                }
+                else alert("Nie można rozwinąć akapitu " + numerOfParagraph + " gdyż ten nie istnieje." );
+
             });
         });
         </script>
@@ -23,16 +31,16 @@
     <body>
         <div>
             <ul id="overlaps">
-                <li class="overlaps" id="overlap1">Zkladka 1</li>
-                <li class="overlaps" id="overlap2">Zkladka 2</li>
-                <li class="overlaps" id="overlap3">Zkladka 3</li>
-                <li class="overlaps" id="overlap4">Zkladka 4</li>
+                <li class="overlaps" >Zakladka 1</li>
+                <li class="overlaps" >Zakladka 2</li>
+                <li class="overlaps" >Zakladka 3</li>
+                <li class="overlaps" >Zakladka 4</li>
             </ul>
         </div>
-        <div class="panel" id="panel1">Hello world!1</div>
-        <div class="panel" id="panel2">Hello world!2</div>
-        <div class="panel" id="panel3">Hello world!3</div>
-        <div class="panel" id="panel4">Hello world!4</div>
+        <div class="panel" >Hello world!1</div>
+        <div class="panel" >Hello world!2</div>
+        <div class="panel" >Hello world!3</div>
+        <div class="panel" >Hello world!4</div>
 
     </body>
 </html>
