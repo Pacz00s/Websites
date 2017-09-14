@@ -5,42 +5,82 @@
         <link rel="stylesheet" type="text/css" href="./styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script> 
-        $(document).ready(function(){
-            $( "li.overlaps" ).click(function( event ) {
-                var numerOfOverlap =$('li').index(this) ;
-                var numerOfParagraph = numerOfOverlap;
-               
-            //Restore all element style    
-            $('.panel').slideUp();
-            $('ul li:has(ul)').css("background-color","e5eecc");
-            $('.panel').css("display","none");
+        $(document).ready(function()
+        {
+            $("li.overlap").on("click","",handleOverlapsClick);
             
-                
-            ///Check  
-                if ($( "div.panel" ).eq( numerOfParagraph ).length > 0) {
-                        $( "div.panel" ).eq( numerOfParagraph ).css( "background-color", "red" );
-                        $( "div.panel" ).eq( numerOfParagraph ).slideDown();
-                }
-                else alert("Nie można rozwinąć akapitu " + numerOfParagraph + " gdyż ten nie istnieje." );
+            function handleOverlapsClick()
+            {
+                var numberOfOverlap =$('li').index(this) ;
+                handleOverlapsClick(numberOfOverlap);
+                //var numerOfOverlap = _numberOfOverlap;
+                //var numerOfParagraph = numerOfOverlap;
+               
+                //Restore all element style    
+                $('.panel').slideUp();
+                $('ul li:has(ul)').css("background-color","e5eecc");
+                $('.panel').css("display","none");
 
-            });
+
+                //If clicked overlap is last overlap in list then try add new overlap (and paragrahp?)
+                if( $( "li.overlap" ).length == numerOfOverlap+1)
+                {
+                   $('.overlap').last().remove();
+                   $('ul').append("<li class='overlap'" + ">Zakładka " + (numerOfParagraph +1) + "</li>");
+                   $('ul').append("<li class='overlap' >+</li>");
+                    
+                    $("li.overlap").off("click","",handleOverlapsClick);
+                    ///Jquery sucks,you'll have to create a "delegated" binding by using on().
+                    $("li.overlap").on("click","",handleOverlapsClick);
+                }
+                //else try slide down paragraph
+                else 
+                {
+                    if ($( "div.panel" ).eq( numerOfParagraph ).length > 0) 
+                    {
+                       $( "div.panel" ).eq( numerOfParagraph ).css( "background-color", "c6c9be" );
+                       $( "div.panel" ).eq( numerOfParagraph ).slideDown();
+                    }
+                    else alert("Nie można rozwinąć akapitu " + numerOfParagraph + " gdyż ten nie istnieje." );
+                }
+
+            }
+            //$( "li.overlap" ).click(function( event ) 
+            //{
+            //    var numberOfOverlap =$('li').index(this) ;
+            //    handleOverlapsClick();
+            //});
+
         });
         </script>
 
     </head>
     <body>
         <div>
-            <ul id="overlaps">
-                <li class="overlaps" >Zakladka 1</li>
-                <li class="overlaps" >Zakladka 2</li>
-                <li class="overlaps" >Zakladka 3</li>
-                <li class="overlaps" >Zakladka 4</li>
+            <ul id="overlap">
+                <li class="overlap" >Zakladka 1</li>
+                <li class="overlap" >Zakladka 2</li>
+                <li class="overlap" >Zakladka 3</li>
+                <li class="overlap" >Zakladka 4</li>
+                <li class="overlap" >+</li>
             </ul>
         </div>
-        <div class="panel" >Hello world!1</div>
-        <div class="panel" >Hello world!2</div>
-        <div class="panel" >Hello world!3</div>
-        <div class="panel" >Hello world!4</div>
+        <div class="panel" >
+            <h2>Akpit 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis sapien est, nec laoreet sem molestie sit amet. Curabitur sagittis libero at magna efficitur tempus. Phasellus quam tellus, auctor in arcu non, semper commodo neque. Ut eu euismod nisi. Pellentesque consequat bibendum ex, at lacinia nisl lacinia sit amet. Mauris cursus ligula ligula, vitae luctus massa vehicula a. Integer interdum diam enim, varius porta diam dignissim ut. Nam molestie posuere blandit. Nam viverra ut lorem eu euismod. Praesent non dignissim nunc. Praesent auctor facilisis quam, ac imperdiet sapien mollis blandit. Cras sit amet maximus erat. Curabitur venenatis rhoncus justo, vitae mollis nisl imperdiet vel. Vivamus nec sem eu risus sodales fringilla.</p>
+        </div>
+        <div class="panel" >
+            <h2>Akapit 2</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis sapien est, nec laoreet sem molestie sit amet. Curabitur sagittis libero at magna efficitur tempus. Phasellus quam tellus, auctor in arcu non, semper commodo neque. Ut eu euismod nisi. Pellentesque consequat bibendum ex, at lacinia nisl lacinia sit amet. Mauris cursus ligula ligula, vitae luctus massa vehicula a. Integer interdum diam enim, varius porta diam dignissim ut. Nam molestie posuere blandit. Nam viverra ut lorem eu euismod. Praesent non dignissim nunc. Praesent auctor facilisis quam, ac imperdiet sapien mollis blandit. Cras sit amet maximus erat. Curabitur venenatis rhoncus justo, vitae mollis nisl imperdiet vel. Vivamus nec sem eu risus sodales fringilla.</p>
+        </div>
+        <div class="panel" >
+            <h2>Akapit 3</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis sapien est, nec laoreet sem molestie sit amet. Curabitur sagittis libero at magna efficitur tempus. Phasellus quam tellus, auctor in arcu non, semper commodo neque. Ut eu euismod nisi. Pellentesque consequat bibendum ex, at lacinia nisl lacinia sit amet. Mauris cursus ligula ligula, vitae luctus massa vehicula a. Integer interdum diam enim, varius porta diam dignissim ut. Nam molestie posuere blandit. Nam viverra ut lorem eu euismod. Praesent non dignissim nunc. Praesent auctor facilisis quam, ac imperdiet sapien mollis blandit. Cras sit amet maximus erat. Curabitur venenatis rhoncus justo, vitae mollis nisl imperdiet vel. Vivamus nec sem eu risus sodales fringilla.</p>
+        </div>
+        <div class="panel" >
+            <h2>Akapit 4</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis sapien est, nec laoreet sem molestie sit amet. Curabitur sagittis libero at magna efficitur tempus. Phasellus quam tellus, auctor in arcu non, semper commodo neque. Ut eu euismod nisi. Pellentesque consequat bibendum ex, at lacinia nisl lacinia sit amet. Mauris cursus ligula ligula, vitae luctus massa vehicula a. Integer interdum diam enim, varius porta diam dignissim ut. Nam molestie posuere blandit. Nam viverra ut lorem eu euismod. Praesent non dignissim nunc. Praesent auctor facilisis quam, ac imperdiet sapien mollis blandit. Cras sit amet maximus erat. Curabitur venenatis rhoncus justo, vitae mollis nisl imperdiet vel. Vivamus nec sem eu risus sodales fringilla.</p>
+        </div>
 
     </body>
 </html>

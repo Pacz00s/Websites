@@ -1,4 +1,4 @@
-.overlaps {
+.overlap {
     padding: 5px;
     text-align: center;
     background-color: #e5eecc;
@@ -6,6 +6,21 @@
     float:left;
     border-style: solid;
     border-color: #000000;
+    position: relative;
+    margin-top: 50px;
+    float: left;
+}
+.addoverlap {
+    padding: 5px;
+    text-align: center;
+    background-color: #f4bb34;
+    border: solid 1px #c3c3c3;
+    float:left;
+    border-style: solid;
+    border-color: #000000;
+    position: relative;
+    margin-top: 50px;
+    float: left;
 }
 ul { 
     display: block;
@@ -26,9 +41,15 @@ ul {
 .panel {
     padding: 50px;
     display: none;
-        padding: 5px;
+     padding: 5px;
     text-align: center;
     background-color: #e5eecc;
     border: solid 1px #c3c3c3;
-    
+    position: absolute;
+    top: 95px;
+    margin-left: 40px;
+    width: 400px;
+    height:320px;
+    border-style: solid;
+    border-color: #000000;
 }
