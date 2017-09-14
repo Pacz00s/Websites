@@ -12,9 +12,7 @@
             function handleOverlapsClick()
             {
                 var numberOfOverlap =$('li').index(this) ;
-                handleOverlapsClick(numberOfOverlap);
-                //var numerOfOverlap = _numberOfOverlap;
-                //var numerOfParagraph = numerOfOverlap;
+                var numerOfParagraph = numberOfOverlap;
                
                 //Restore all element style    
                 $('.panel').slideUp();
@@ -23,7 +21,7 @@
 
 
                 //If clicked overlap is last overlap in list then try add new overlap (and paragrahp?)
-                if( $( "li.overlap" ).length == numerOfOverlap+1)
+                if( $( "li.overlap" ).length == numberOfOverlap+1)
                 {
                    $('.overlap').last().remove();
                    $('ul').append("<li class='overlap'" + ">Zakładka " + (numerOfParagraph +1) + "</li>");
@@ -41,7 +39,7 @@
                        $( "div.panel" ).eq( numerOfParagraph ).css( "background-color", "c6c9be" );
                        $( "div.panel" ).eq( numerOfParagraph ).slideDown();
                     }
-                    else alert("Nie można rozwinąć akapitu " + numerOfParagraph + " gdyż ten nie istnieje." );
+                    else alert("Nie można rozwinąć akapitu " + (numerOfParagraph +1) + " gdyż ten nie istnieje." );
                 }
 
             }
