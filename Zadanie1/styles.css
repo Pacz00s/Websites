@@ -2,25 +2,21 @@
     padding: 5px;
     text-align: center;
     background-color: #e5eecc;
-    border: solid 1px #c3c3c3;
+    border: solid 1px;
     float:left;
     border-style: solid;
     border-color: #000000;
     position: relative;
-    margin-top: 50px;
     float: left;
 }
+#overlap
+{
+top: 50px;
+   position: absolute;
+}
 .addoverlap {
-    padding: 5px;
-    text-align: center;
     background-color: #f4bb34;
-    border: solid 1px #c3c3c3;
-    float:left;
-    border-style: solid;
     border-color: #000000;
-    position: relative;
-    margin-top: 50px;
-    float: left;
 }
 ul { 
     display: block;
@@ -52,4 +48,35 @@ ul {
     height:320px;
     border-style: solid;
     border-color: #000000;
+}
+#addoverlapform
+{
+    width: 400px;
+    height: 300px;
+    background-color: gray;
+    border: solid 2px #000000;
+    position:absolute;
+    margin-left:30vw;
+    margin-top: 20vh;
+}
+#closeFormButton
+{
+    position: relative;
+    float:right;
+    width: 18px;
+    height: 18px;
+    background-color: red;
+    margin-right: 2px;
+    margin-top: 2px;
+    border: solid 1px #000000;
+    
+}
+#formbackground
+{
+    position:absolute;
+    background-image: url("./chess.png");
+    background-repeat: repeat;
+    height: 100vh;
+    width: 100vw;
+    visibility: hidden;
 }

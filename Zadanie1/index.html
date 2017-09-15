@@ -1,7 +1,3 @@
-///TO DO
-/// dodac formulr
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,16 +19,17 @@
                 $('ul li:has(ul)').css("background-color","e5eecc");
                 $('.panel').css("display","none");
 
-                //If clicked overlap is last overlap in list then try add new overlap (and paragrahp?)
+                //If clicked overlap is last in the list then try add new overlap.
                 if( $( "li.overlap" ).length == numberOfOverlap+1)
                 {
-                   $('.overlap').last().remove();
-                   $('ul').append("<li class='overlap'" + ">Zakładka " + (numerOfParagraph +1) + "</li>");
-                   $('ul').append("<li class='overlap addoverlap' >+</li>");
+                    showForm();
+                  // $('.overlap').last().remove();
+                   //$('ul').append("<li class='overlap'" + ">Zakładka " + (numerOfParagraph +1) + "</li>");
+                  // $('ul').append("<li class='overlap addoverlap' >+</li>");
                     
                     //Disable and reset overlaps behavior on click
-                    $("li.overlap").off("click","",handleOverlapsClick);
-                    $("li.overlap").on("click","",handleOverlapsClick);
+                   // $("li.overlap").off("click","",handleOverlapsClick);
+                   // $("li.overlap").on("click","",handleOverlapsClick);
                 }
                 //else try slide down paragraph
                 else 
@@ -44,12 +41,41 @@
                     }
                     else alert("Nie można rozwinąć akapitu " + (numerOfParagraph +1) + " gdyż ten nie istnieje." );
                 }
-
             }
-
+            
+            $('#closeFormButton').click(function (event) 
+            {
+                
+                $('#formbackground').css("visibility","hidden");
+                $('#formbackground').css("z-index","-1");
+                event.stopPropagation()
+                
+            })
         });
+        function showForm()
+        {
+                
+                $('#formbackground').css("visibility","visible");
+                $('#formbackground').css("z-index","+1");
+        }
+        function addNewOverlap()
+        {
+                alert('Hello World!');
+        }
         </script>
+        <div id="formbackground">
+            <div id="addoverlapform">
+                <div id="closeFormButton">X</div>
+                <h3>Formularz dodawania nowej zakładki</h3>
 
+                <p>Podaj tytuł zakładki</p>
+                <input type="text" name="overlapTitle"><br>
+                <p>Podaj treść akaptiu</p>
+                <textarea rows="4" cols="50"></textarea>
+                 <br>
+                 <button onclick="addNewOverlap()">Dodaj zakładkę</button>
+            </div>
+        </div>
     </head>
     <body>
         <div>
