@@ -5,10 +5,6 @@
         <link rel="stylesheet" type="text/css" href="./styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script> 
-        $(document).ready(function()
-        {
-            $("li.overlap").on("click","",handleOverlapsClick);
-            
             function handleOverlapsClick()
             {
                 var numberOfOverlap =$('li').index(this) ;
@@ -23,13 +19,6 @@
                 if( $( "li.overlap" ).length == numberOfOverlap+1)
                 {
                     showForm();
-                  // $('.overlap').last().remove();
-                   //$('ul').append("<li class='overlap'" + ">Zakładka " + (numerOfParagraph +1) + "</li>");
-                  // $('ul').append("<li class='overlap addoverlap' >+</li>");
-                    
-                    //Disable and reset overlaps behavior on click
-                   // $("li.overlap").off("click","",handleOverlapsClick);
-                   // $("li.overlap").on("click","",handleOverlapsClick);
                 }
                 //else try slide down paragraph
                 else 
@@ -42,6 +31,16 @@
                     else alert("Nie można rozwinąć akapitu " + (numerOfParagraph +1) + " gdyż ten nie istnieje." );
                 }
             }
+        $(document).ready(function()
+        {
+            $(document).keyup(function(e) {
+                 if (e.keyCode == 27) { // escape key maps to keycode `27`
+                     $('#formbackground').css("visibility","hidden");
+                    $('#formbackground').css("z-index","-1");
+                }
+            });
+            
+            $("li.overlap").on("click","",handleOverlapsClick);
             
             $('#closeFormButton').click(function (event) 
             {
@@ -60,7 +59,20 @@
         }
         function addNewOverlap()
         {
-                alert('Hello World!');
+            $('.overlap').last().remove();
+            $('ul').append("<li class='overlap'" + ">Zakładka " + (document.getElementById('overlapTitle').value) + "</li>");
+            $('ul').append("<li class='overlap addoverlap' >+</li>");
+            
+           // $('#p').add( "<div class='panel' > <h2>"+document.getElementById('overlapTitle').value + "</h2> <p> " + ////document.getElementById('overlapContent').value + " </p> </div>" );
+            //$('#p').add( "div" ).addClass("panel");
+           // $('.panel').last().add("h2");
+            
+           //Disable and reset overlaps behavior on click
+           $("li.overlap").off("click","");
+           $("li.overlap").on("click","",handleOverlapsClick);
+            
+           $('#formbackground').css("visibility","hidden");
+           $('#formbackground').css("z-index","-1");
         }
         </script>
         <div id="formbackground">
@@ -69,9 +81,9 @@
                 <h3>Formularz dodawania nowej zakładki</h3>
 
                 <p>Podaj tytuł zakładki</p>
-                <input type="text" name="overlapTitle"><br>
+                <input type="text" id="overlapTitle"><br>
                 <p>Podaj treść akaptiu</p>
-                <textarea rows="4" cols="50"></textarea>
+                <textarea rows="4" cols="50" id="overlapContent"></textarea>
                  <br>
                  <button onclick="addNewOverlap()">Dodaj zakładkę</button>
             </div>
@@ -87,22 +99,23 @@
                 <li class="overlap addoverlap" >+</li>
             </ul>
         </div>
-        <div class="panel" >
-            <h2>Akpit 1</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis sapien est, nec laoreet sem molestie sit amet. Curabitur sagittis libero at magna efficitur tempus. Phasellus quam tellus, auctor in arcu non, semper commodo neque. Ut eu euismod nisi. Pellentesque consequat bibendum ex, at lacinia nisl lacinia sit amet. Mauris cursus ligula ligula, vitae luctus massa vehicula a. Integer interdum diam enim, varius porta diam dignissim ut. Nam molestie posuere blandit. Nam viverra ut lorem eu euismod. Praesent non dignissim nunc. Praesent auctor facilisis quam, ac imperdiet sapien mollis blandit. Cras sit amet maximus erat. Curabitur venenatis rhoncus justo, vitae mollis nisl imperdiet vel. Vivamus nec sem eu risus sodales fringilla.</p>
+        <div id="p">
+            <div class="panel" >
+                <h2>Akpit 1</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis sapien est, nec laoreet sem molestie sit amet. Curabitur sagittis libero at magna efficitur tempus. Phasellus quam tellus, auctor in arcu non, semper commodo neque. Ut eu euismod nisi. Pellentesque consequat bibendum ex, at lacinia nisl lacinia sit amet. Mauris cursus ligula ligula, vitae luctus massa vehicula a. Integer interdum diam enim, varius porta diam dignissim ut. Nam molestie posuere blandit. Nam viverra ut lorem eu euismod. Praesent non dignissim nunc. Praesent auctor facilisis quam, ac imperdiet sapien mollis blandit. Cras sit amet maximus erat. Curabitur venenatis rhoncus justo, vitae mollis nisl imperdiet vel. Vivamus nec sem eu risus sodales fringilla.</p>
+            </div>
+            <div class="panel" >
+                <h2>Akapit 2</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis sapien est, nec laoreet sem molestie sit amet. Curabitur sagittis libero at magna efficitur tempus. Phasellus quam tellus, auctor in arcu non, semper commodo neque. Ut eu euismod nisi. Pellentesque consequat bibendum ex, at lacinia nisl lacinia sit amet. Mauris cursus ligula ligula, vitae luctus massa vehicula a. Integer interdum diam enim, varius porta diam dignissim ut. Nam molestie posuere blandit. Nam viverra ut lorem eu euismod. Praesent non dignissim nunc. Praesent auctor facilisis quam, ac imperdiet sapien mollis blandit. Cras sit amet maximus erat. Curabitur venenatis rhoncus justo, vitae mollis nisl imperdiet vel. Vivamus nec sem eu risus sodales fringilla.</p>
+            </div>
+            <div class="panel" >
+                <h2>Akapit 3</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis sapien est, nec laoreet sem molestie sit amet. Curabitur sagittis libero at magna efficitur tempus. Phasellus quam tellus, auctor in arcu non, semper commodo neque. Ut eu euismod nisi. Pellentesque consequat bibendum ex, at lacinia nisl lacinia sit amet. Mauris cursus ligula ligula, vitae luctus massa vehicula a. Integer interdum diam enim, varius porta diam dignissim ut. Nam molestie posuere blandit. Nam viverra ut lorem eu euismod. Praesent non dignissim nunc. Praesent auctor facilisis quam, ac imperdiet sapien mollis blandit. Cras sit amet maximus erat. Curabitur venenatis rhoncus justo, vitae mollis nisl imperdiet vel. Vivamus nec sem eu risus sodales fringilla.</p>
+            </div>
+            <div class="panel" >
+                <h2>Akapit 4</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis sapien est, nec laoreet sem molestie sit amet. Curabitur sagittis libero at magna efficitur tempus. Phasellus quam tellus, auctor in arcu non, semper commodo neque. Ut eu euismod nisi. Pellentesque consequat bibendum ex, at lacinia nisl lacinia sit amet. Mauris cursus ligula ligula, vitae luctus massa vehicula a. Integer interdum diam enim, varius porta diam dignissim ut. Nam molestie posuere blandit. Nam viverra ut lorem eu euismod. Praesent non dignissim nunc. Praesent auctor facilisis quam, ac imperdiet sapien mollis blandit. Cras sit amet maximus erat. Curabitur venenatis rhoncus justo, vitae mollis nisl imperdiet vel. Vivamus nec sem eu risus sodales fringilla.</p>
+            </div>
         </div>
-        <div class="panel" >
-            <h2>Akapit 2</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis sapien est, nec laoreet sem molestie sit amet. Curabitur sagittis libero at magna efficitur tempus. Phasellus quam tellus, auctor in arcu non, semper commodo neque. Ut eu euismod nisi. Pellentesque consequat bibendum ex, at lacinia nisl lacinia sit amet. Mauris cursus ligula ligula, vitae luctus massa vehicula a. Integer interdum diam enim, varius porta diam dignissim ut. Nam molestie posuere blandit. Nam viverra ut lorem eu euismod. Praesent non dignissim nunc. Praesent auctor facilisis quam, ac imperdiet sapien mollis blandit. Cras sit amet maximus erat. Curabitur venenatis rhoncus justo, vitae mollis nisl imperdiet vel. Vivamus nec sem eu risus sodales fringilla.</p>
-        </div>
-        <div class="panel" >
-            <h2>Akapit 3</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis sapien est, nec laoreet sem molestie sit amet. Curabitur sagittis libero at magna efficitur tempus. Phasellus quam tellus, auctor in arcu non, semper commodo neque. Ut eu euismod nisi. Pellentesque consequat bibendum ex, at lacinia nisl lacinia sit amet. Mauris cursus ligula ligula, vitae luctus massa vehicula a. Integer interdum diam enim, varius porta diam dignissim ut. Nam molestie posuere blandit. Nam viverra ut lorem eu euismod. Praesent non dignissim nunc. Praesent auctor facilisis quam, ac imperdiet sapien mollis blandit. Cras sit amet maximus erat. Curabitur venenatis rhoncus justo, vitae mollis nisl imperdiet vel. Vivamus nec sem eu risus sodales fringilla.</p>
-        </div>
-        <div class="panel" >
-            <h2>Akapit 4</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis sapien est, nec laoreet sem molestie sit amet. Curabitur sagittis libero at magna efficitur tempus. Phasellus quam tellus, auctor in arcu non, semper commodo neque. Ut eu euismod nisi. Pellentesque consequat bibendum ex, at lacinia nisl lacinia sit amet. Mauris cursus ligula ligula, vitae luctus massa vehicula a. Integer interdum diam enim, varius porta diam dignissim ut. Nam molestie posuere blandit. Nam viverra ut lorem eu euismod. Praesent non dignissim nunc. Praesent auctor facilisis quam, ac imperdiet sapien mollis blandit. Cras sit amet maximus erat. Curabitur venenatis rhoncus justo, vitae mollis nisl imperdiet vel. Vivamus nec sem eu risus sodales fringilla.</p>
-        </div>
-
     </body>
 </html>
