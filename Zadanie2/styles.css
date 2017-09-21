@@ -1,0 +1,36 @@
+body
+{
+    background-color:gray;
+    margin: 0;
+    padding: 0;
+}
+#uploadBar
+{
+    height: 4vh;
+    width: 100vw;
+    background-color: red;
+}
+#gallery
+{
+    height: 90vh;
+    width: 100w;
+}
+#photoList
+{
+    background-color: green;
+    height: 90vh;
+    width: 30vw;
+    float:left;
+}
+#photoView
+{
+    background-color: pink;
+    height: 90vh;
+    width: 100vw;
+}
+#optionBar
+{
+    background-color: black;
+    height: 6vh;
+    width: 100vw;
+}
