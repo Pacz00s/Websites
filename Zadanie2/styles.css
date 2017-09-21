@@ -9,28 +9,56 @@ body
     height: 4vh;
     width: 100vw;
     background-color: red;
+    display: inline-flex;  // <-- This is responsible for vertical alignment
 }
 #gallery
 {
     height: 90vh;
-    width: 100w;
+    width: 100vw;
 }
-#photoList
+#photoListArea
 {
     background-color: green;
     height: 90vh;
     width: 30vw;
     float:left;
 }
-#photoView
+#photoViewArea
 {
     background-color: pink;
     height: 90vh;
-    width: 100vw;
+    width: 70vw;
+    float:right;
 }
 #optionBar
 {
     background-color: black;
     height: 6vh;
     width: 100vw;
+}
+
+.greenButton
+{
+    height: 3vh;
+    width: 10vw;
+    background-color: green;
+    
+    line-height: 3vh;
+    text-align: center;
+    float:right;
+}
+#uploadButon
+{
+    margin: auto 5px;   // <-- This is responsible for vertical alignment
+}
+.photoView
+{
+    background-color: black;
+    height: 60vh;
+    width: 80vw;
+}
+#photoView
+{
+   
+
 }
