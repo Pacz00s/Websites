@@ -5,7 +5,10 @@
         <link rel="stylesheet" type="text/css" href="./styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script> 
-            
+            $( "#target" ).click(function()
+            {
+  
+            });
         </script>
         
     </head>
@@ -15,21 +18,27 @@
             </div>
             <div id="gallery">    
                 <div id="photoListArea">
-                    <div id="photoList">
-                       <!-- <div class="thumbnailPhoto" id="thumbnail_1">
-                        
-                        --</div> -->
-                    </div>
+                    <ul id="photoList">
+                    
+                    </ul>
                 </div>
                 <div id="photoViewArea">
-                      <!--   <div class="photoView" id="photoView">
+                        <div class="photoView" id="photoView">
                         
-                        </div>-->
+                        </div>
                 </div>
             
             </div>
             <div id="optionBar">
-            
+                <div id="showOptinsBar">
+                    <div id="showOptionsButton">WIĘCEJ OPCJI</div>
+                </div>
+                <div id="options">
+                    <div id="backButton"  class="button">  Poprzedni  </div>
+                    <div id="startButton" class="button">  Rozpocznij </div>
+                    <div id="stopButton"  class="button">  Zatrzymaj  </div>
+                    <div id="nextButton " class="button">  Następny   </div>
+                </div>
             </div>
         </body>
 </html>

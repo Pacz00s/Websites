@@ -9,7 +9,7 @@ body
     height: 4vh;
     width: 100vw;
     background-color: red;
-    display: inline-flex;  // <-- This is responsible for vertical alignment
+    display: inline-flex;  
 }
 #gallery
 {
@@ -29,14 +29,8 @@ body
     height: 90vh;
     width: 70vw;
     float:right;
+    
 }
-#optionBar
-{
-    background-color: black;
-    height: 6vh;
-    width: 100vw;
-}
-
 .greenButton
 {
     height: 3vh;
@@ -49,16 +43,55 @@ body
 }
 #uploadButon
 {
-    margin: auto 5px;   // <-- This is responsible for vertical alignment
+    margin: auto 5px;   
 }
 .photoView
 {
     background-color: black;
-    height: 60vh;
-    width: 80vw;
+    height: 67.5vh;
+    width: 52.5vw;
+    
+    margin-left: 11.25vw;
+    margin-top: 8.75vh;
 }
 #photoView
 {
-   
 
+}
+
+#optionBar
+{
+    background-color: black;
+    height: 8vh;
+    width: 100vw;
+    position: fixed;
+    text-align: center;
+}
+#showOptinsBar
+{
+text-align: center;
+}
+#showOptionsButton
+{
+    color:white;
+    display: inline-block;
+}
+.button
+{
+    text-align: center;
+    color:white;
+    background-color: red;
+    float:left;
+    
+    border-color: white;
+    border-style: solid;
+    border-width: 2px;
+    
+    margin-top:1vh;
+    
+}
+#options
+{
+    height: 6vh;
+    display: inline-block;
 }
