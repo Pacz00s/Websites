@@ -8,7 +8,7 @@ body
 {
     height: 4vh;
     width: 100vw;
-    background-color: red;
+    background-color: black;
     display: inline-flex;  
 }
 #gallery
@@ -18,14 +18,16 @@ body
 }
 #photoListArea
 {
-    background-color: green;
+    background-color: #363434;
     height: 90vh;
     width: 30vw;
     float:left;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 #photoViewArea
 {
-    background-color: pink;
+    background-color: #363434;
     height: 90vh;
     width: 70vw;
     float:right;
@@ -35,7 +37,7 @@ body
 {
     height: 3vh;
     width: 10vw;
-    background-color: green;
+    background-color: greenyellow;
     
     line-height: 3vh;
     text-align: center;
@@ -47,12 +49,21 @@ body
 }
 .photoView
 {
-    background-color: black;
+    background-color: gray;
     height: 67.5vh;
     width: 52.5vw;
     
     margin-left: 11.25vw;
     margin-top: 8.75vh;
+    
+    
+    background-size:100%;
+    background-repeat: no-repeat;
+    
+    
+    border-color: white;
+    border-style: solid;
+    border-width: 2px; 
 }
 #photoView
 {
@@ -61,7 +72,7 @@ body
 
 #optionBar
 {
-    background-color: black;
+    background-color: #00A7E1;
     height: 8vh;
     width: 100vw;
     position: fixed;
@@ -80,7 +91,7 @@ text-align: center;
 {
     text-align: center;
     color:white;
-    background-color: red;
+    background-color: black;
     float:left;
     
     border-color: white;
@@ -94,4 +105,23 @@ text-align: center;
 {
     height: 6vh;
     display: inline-block;
+}
+
+ul > li
+{
+    width: 15vw;
+    height: 20vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    float:left;
+    border-color: white;
+    border-style: solid;
+    border-width: 2px; 
+    position: relative;
+    
+    margin-top: 5px;
+}
+
+ul {
+ list-style-type: none;
 }

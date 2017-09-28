@@ -5,10 +5,31 @@
         <link rel="stylesheet" type="text/css" href="./styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script> 
+            var imagesPaths = ["./a.png", "./b.jpg", "./c.png", "./d.png" ,"./e.png", "./f.jpg"];
+            
+            $( document ).ready(function()
+            {
+                
+                for (i = 0; i < imagesPaths.length; i++) 
+                { 
+                    $("#photoList").append('<li></li>');///create new li
+                    $('li').last().css('background-color', 'black');/// set backround color
+                    $('li').last().css('background-image', 'url(' + imagesPaths[i] + ')');/// set backround image
+                    
+                }
+                
+                 $( "li" ).on('click',function() {    
+                    var numberOfOverlap = $('li').index(this) ;
+                    $('#photoView').css('background-image', 'url(' + imagesPaths[numberOfOverlap] + ')');/// set backround image
+                });
+            });
+            
             $( "#target" ).click(function()
             {
   
             });
+            
+
         </script>
         
     </head>
@@ -29,7 +50,7 @@
                 </div>
             
             </div>
-            <div id="optionBar">
+            <!--<div id="optionBar">
                 <div id="showOptinsBar">
                     <div id="showOptionsButton">WIĘCEJ OPCJI</div>
                 </div>
@@ -39,6 +60,6 @@
                     <div id="stopButton"  class="button">  Zatrzymaj  </div>
                     <div id="nextButton " class="button">  Następny   </div>
                 </div>
-            </div>
+            </div>-->
         </body>
 </html>
