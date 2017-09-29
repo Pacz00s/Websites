@@ -6,6 +6,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script> 
             var imagesPaths = ["./a.png", "./b.jpg", "./c.png", "./d.png" ,"./e.png", "./f.jpg"];
+            var currentPhoto = 0;
+            var intervalHandle;
             
             $( document ).ready(function()
             {
@@ -21,13 +23,43 @@
                  $( "li" ).on('click',function() {    
                     var numberOfOverlap = $('li').index(this) ;
                     $('#photoView').css('background-image', 'url(' + imagesPaths[numberOfOverlap] + ')');/// set backround image
+                     currentPhoto = numberOfOverlap;
                 });
+                
+             $( "#play_pause" ).click(function()
+            {
+                  intervalHandle = window.setInterval(nextPhoto, 1500);
+            });
+            $( "#last" ).click(function()
+            {
+                  lastPhoto();
+            });
+            $( "#stop" ).click(function()
+            {
+                  clearInterval(intervalHandle);
+            });
+            function nextPhoto()
+            {
+                currentPhoto++;
+                if(currentPhoto >= imagesPaths.length)
+                {
+                    currentPhoto = 0;
+                }
+                $('#photoView').css('background-image', 'url(' + imagesPaths[currentPhoto] + ')');/// set backround image
+            }
+                
+            function lastPhoto()
+            {
+                currentPhoto--;
+                if(currentPhoto < 0)
+                {
+                    currentPhoto = imagesPaths.length -1;
+                }
+                $('#photoView').css('background-image', 'url(' + imagesPaths[currentPhoto] + ')');/// set backround image
+            }
             });
             
-            $( "#target" ).click(function()
-            {
-  
-            });
+
             
 
         </script>
@@ -50,16 +82,16 @@
                 </div>
             
             </div>
-            <!--<div id="optionBar">
+            <div id="optionBar">
                 <div id="showOptinsBar">
                     <div id="showOptionsButton">WIĘCEJ OPCJI</div>
                 </div>
                 <div id="options">
-                    <div id="backButton"  class="button">  Poprzedni  </div>
-                    <div id="startButton" class="button">  Rozpocznij </div>
-                    <div id="stopButton"  class="button">  Zatrzymaj  </div>
-                    <div id="nextButton " class="button">  Następny   </div>
+                    <div id="last" class="last">  </div>
+                    <div id="play_pause" class="play">  </div>
+                    <div id="stop" class="stop">  </div>
+                    <div id="next" class="next">  </div>
                 </div>
-            </div>-->
+            </div>-
         </body>
 </html>
