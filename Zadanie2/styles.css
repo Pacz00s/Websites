@@ -19,7 +19,7 @@ body
 #photoListArea
 {
     background-color: #363434;
-    height: 90vh;
+    height: 93.5vh;
     width: 30vw;
     float:left;
     overflow: scroll;
@@ -28,7 +28,7 @@ body
 #photoViewArea
 {
     background-color: #363434;
-    height: 90vh;
+    height: 93.5vh;
     width: 70vw;
     float:right;
     
@@ -73,6 +73,7 @@ body
     width: 100vw;
     position: fixed;
     text-align: center;
+    margin-top: -2vh;
 }
 #showOptinsBar
 {

@@ -8,10 +8,18 @@
             var imagesPaths = ["./a.png", "./b.jpg", "./c.png", "./d.png" ,"./e.png", "./f.jpg"];
             var currentPhoto = 0;
             var intervalHandle;
+            var started = false;
+            showOptions = false;
             
             $( document ).ready(function()
             {
-                
+                $(document).keyup(function(e) {
+                 if (e.keyCode == 27) { // escape key maps to keycode `27`
+                     clearInterval(intervalHandle);
+                     $('#play_pause').css('background-image', 'url(play.png)');/// set background image
+                    started = false;
+                }
+                });
                 for (i = 0; i < imagesPaths.length; i++) 
                 { 
                     $("#photoList").append('<li></li>');///create new li
@@ -20,23 +28,50 @@
                     
                 }
                 
+                
                  $( "li" ).on('click',function() {    
                     var numberOfOverlap = $('li').index(this) ;
                     $('#photoView').css('background-image', 'url(' + imagesPaths[numberOfOverlap] + ')');/// set backround image
                      currentPhoto = numberOfOverlap;
                 });
-                
+                $('#photoView').css('background-image', 'url(' + imagesPaths[0] + ')');/// set backround image
+
              $( "#play_pause" ).click(function()
             {
-                  intervalHandle = window.setInterval(nextPhoto, 1500);
+                  if(started == false)
+                  {
+                      intervalHandle = window.setInterval(nextPhoto, 1000);
+                      $('#play_pause').css('background-image', 'url(pause.png)');/// set background image
+                      started = true;
+                  }
             });
             $( "#last" ).click(function()
             {
                   lastPhoto();
             });
+            $( "#next" ).click(function()
+            {
+                  nextPhoto();
+            });
             $( "#stop" ).click(function()
             {
                   clearInterval(intervalHandle);
+                  $('#play_pause').css('background-image', 'url(play.png)');/// set background image
+                  started = false;
+            });
+            $( "#showOptionsButton" ).click(function()
+            {
+                if(showOptions == false)
+                {
+                    $('#optionBar').css('margin-top', '-5.5vh');/// set backround image
+                    showOptions = true;
+                }
+                else 
+                {
+                    $('#optionBar').css('margin-top', '-2vh');/// set backround image
+                    showOptions = false;
+                }
+                
             });
             function nextPhoto()
             {
@@ -58,10 +93,6 @@
                 $('#photoView').css('background-image', 'url(' + imagesPaths[currentPhoto] + ')');/// set backround image
             }
             });
-            
-
-            
-
         </script>
         
     </head>
